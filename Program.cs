@@ -57,5 +57,35 @@ public class Program
         }
 
         Console.WriteLine($"Сумма чисел от 1 до {userPositiveNumber}: {sum}");
+
+
+        // ЗАДАНИЯ НА ВЕТВЛЕНИЕ + ЦИКЛ
+
+        // Задание 5 (Угадай число)
+        Console.WriteLine("\n\nЗАДАНИЕ 5");
+
+        Console.WriteLine("Угадайте число (от 1 до 10 включительно): ");
+
+        Random random = new(); 
+        byte randomNumber = (byte)random.Next(1, 10);
+        byte userInput = 11;
+
+        while (userInput != randomNumber)
+        {
+            userInput = Convert.ToByte(Console.ReadLine());
+
+            if (userInput == randomNumber)
+            {
+                Console.WriteLine($"Правильно, число {randomNumber} угадано!");
+                return;
+            }
+            else
+            {
+                if (userInput > randomNumber)
+                    Console.WriteLine("\nЧисло меньше, попробуйте ещё раз ^^");
+                else
+                    Console.WriteLine("\nЧисло больше, попробуйте ещё раз ^^");
+            }
+        }
     }
 }
